@@ -23,7 +23,50 @@ const launchVideoEditor = () => launchImageLibrary(
       return
     }
     const video = res.assets[0];
-    VESDK.openEditor(video.uri!).then((res) => {
+    VESDK.openEditor(video.uri!,{
+      audio: {
+        categories : [
+          {
+            identifier: 'Category1',
+            name: 'Category 1',
+            items: [
+              {
+                identifier:"allthat",
+                audioURI: require("./assets/music/allthat.mp3")
+              },
+              {
+                identifier:"creativeminds",
+                audioURI: require("./assets/music/creativeminds.mp3")
+              }
+            ]
+          },
+          {
+            identifier: 'Category2',
+            name: 'Category 2',
+            items: [
+              {
+                identifier:"dreams",
+                audioURI: require("./assets/music/dreams.mp3")
+              },
+              {
+                identifier:"elevate",
+                audioURI: require("./assets/music/elevate.mp3")
+              }
+            ]
+          },
+          {
+            identifier: 'Category3',
+            name: 'Category 3',
+            items: [
+              {
+                identifier:"evolution",
+                audioURI: require("./assets/music/evolution.mp3")
+              },
+            ]
+          },
+        ]
+      }
+    }).then((res) => {
       if (res == null) {
         return;
       }
