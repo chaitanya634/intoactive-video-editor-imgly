@@ -76,6 +76,7 @@ PODS:
   - hermes-engine (0.71.8):
     - hermes-engine/Pre-built (= 0.71.8)
   - hermes-engine/Pre-built (0.71.8)
+  - imglyKit (11.5.1)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.07.22.00):
@@ -415,7 +416,13 @@ PODS:
     - React-jsi (= 0.71.8)
     - React-logger (= 0.71.8)
     - React-perflogger (= 0.71.8)
+  - RNVideoEditorSDK (3.0.0):
+    - React
+    - React-RCTImage
+    - VideoEditorSDK (~> 11.4)
   - SocketRocket (0.6.0)
+  - VideoEditorSDK (11.5.1):
+    - imglyKit (= 11.5.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -480,6 +487,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNVideoEditorSDK (from `../node_modules/react-native-videoeditorsdk`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -495,9 +503,11 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - fmt
+    - imglyKit
     - libevent
     - OpenSSL-Universal
     - SocketRocket
+    - VideoEditorSDK
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -569,6 +579,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNVideoEditorSDK:
+    :path: "../node_modules/react-native-videoeditorsdk"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -590,6 +602,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: 47986d26692ae75ee7a17ab049caee8864f855de
+  imglyKit: b1b3b827799a50b090433ca7c61f90b078944898
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
@@ -620,10 +633,12 @@ SPEC CHECKSUMS:
   React-RCTVibration: 43ffd976a25f6057a7cf95ea3648ba4e00287f89
   React-runtimeexecutor: 7c51ae9d4b3e9608a2366e39ccaa606aa551b9ed
   ReactCommon: 85c98ab0a509e70bf5ee5d9715cf68dbf495b84c
+  RNVideoEditorSDK: 0f27b7bc4ce9de1fe51b8fb549e94681fd5f5af8
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  VideoEditorSDK: 77190161e1ca188aa3dfb152978d0f548a66d4ef
   Yoga: 065f0b74dba4832d6e328238de46eb72c5de9556
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: c31eba2a4e476d863ea05d41a630a0b13241d4f2
+PODFILE CHECKSUM: e8c2232dc70f6b8919500430ba70fd7ea7347318
 
 COCOAPODS: 1.12.1

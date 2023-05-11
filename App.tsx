@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {launchImageLibrary} from 'react-native-image-picker';
-
+import { VESDK } from "react-native-videoeditorsdk";
 
 function App(): JSX.Element {
 
@@ -23,9 +23,17 @@ function App(): JSX.Element {
         onPress={()=>{
           launchImageLibrary({'mediaType':'video'},(res)=>{
             if(res.assets == null) {
-              return;
+              return
             }
             const video = res.assets[0];
+            VESDK.openEditor(video.uri!).then((res) => {
+              if(res == null) {
+                return
+              }
+              console.log('====================================');
+              console.log(res);
+              console.log('====================================');
+            })
           })
       }} />
     </SafeAreaView>
