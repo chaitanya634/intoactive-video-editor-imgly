@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 
 import { launchImageLibrary } from 'react-native-image-picker'
-import { VESDK } from "react-native-videoeditorsdk"
+import { CanvasAction, VESDK } from "react-native-videoeditorsdk"
 import FileViewer from 'react-native-file-viewer';
 
 
@@ -25,6 +25,7 @@ const launchVideoEditor = () => launchImageLibrary(
     const video = res.assets[0];
     VESDK.openEditor(video.uri!,{
       audio: {
+        canvasActions:[CanvasAction.PLAY_PAUSE],
         categories : [
           {
             identifier: 'Category1',
@@ -32,11 +33,15 @@ const launchVideoEditor = () => launchImageLibrary(
             items: [
               {
                 identifier:"allthat",
-                audioURI: require("./assets/music/allthat.mp3")
+                audioURI: require("./assets/music/allthat.mp3"),
+                title: 'All That',
+                artist: 'Unknown',
               },
               {
                 identifier:"creativeminds",
-                audioURI: require("./assets/music/creativeminds.mp3")
+                audioURI: require("./assets/music/creativeminds.mp3"),
+                title: 'Creative Minds',
+                artist: 'Unknown',
               }
             ]
           },
@@ -46,11 +51,15 @@ const launchVideoEditor = () => launchImageLibrary(
             items: [
               {
                 identifier:"dreams",
-                audioURI: require("./assets/music/dreams.mp3")
+                audioURI: require("./assets/music/dreams.mp3"),
+                title: 'Dreams',
+                artist: 'Unknown',
               },
               {
                 identifier:"elevate",
-                audioURI: require("./assets/music/elevate.mp3")
+                audioURI: require("./assets/music/elevate.mp3"),
+                title: 'Elevate',
+                artist: 'Unknown',
               }
             ]
           },
@@ -60,7 +69,9 @@ const launchVideoEditor = () => launchImageLibrary(
             items: [
               {
                 identifier:"evolution",
-                audioURI: require("./assets/music/evolution.mp3")
+                audioURI: require("./assets/music/evolution.mp3"),
+                title: 'Evolution',
+                artist: 'Unknown',
               },
             ]
           },
