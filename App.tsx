@@ -1,49 +1,51 @@
 
-import React from 'react';
+import React, { useEffect } from 'react'
 import {
+  Alert,
   Button,
+  PermissionsAndroid,
+  Platform,
   SafeAreaView,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from 'react-native'
 
-import {launchImageLibrary} from 'react-native-image-picker';
-import { VESDK } from "react-native-videoeditorsdk";
+import { launchImageLibrary } from 'react-native-image-picker'
+import { VESDK } from "react-native-videoeditorsdk"
+import FileViewer from 'react-native-file-viewer';
+
 
 const launchVideoEditor = () => launchImageLibrary(
-  {'mediaType':'video'},
+  { 'mediaType': 'video' },
   (res) => {
-    if(res.assets == null) {
+    if (res.assets == null) {
       return
     }
     const video = res.assets[0];
     VESDK.openEditor(video.uri!).then((res) => {
-      if(res == null) {
-        return
+      if (res == null) {
+        return;
       }
-      console.log('====================================');
-      console.log(res);
-      console.log('====================================');
+      FileViewer.open(res.video,{showOpenWithDialog:true})
     })
   }
 )
-
 
 function App(): JSX.Element {
   return (
     <SafeAreaView style={{
       flex: 1,
       justifyContent: 'center',
-      alignSelf:'center',
+      alignSelf: 'center',
     }} >
-      <Text style={{textAlign:'center', fontSize: 32, color: '#85929E', fontWeight:'500'}} >
+      <Text style={{ textAlign: 'center', fontSize: 32, color: '#85929E', fontWeight: '500' }} >
         Intoactive
       </Text>
-      <Text style={{textAlign:'center', color: '#85929E', fontSize: 18, marginBottom: 42}} >
+      <Text style={{ textAlign: 'center', color: '#85929E', fontSize: 18, marginBottom: 42 }} >
         Video Editor
       </Text>
-      <TouchableOpacity 
+      <TouchableOpacity
         style={{
           backgroundColor: '#58D68D',
           paddingHorizontal: 12,
@@ -53,7 +55,7 @@ function App(): JSX.Element {
         }}
         onPress={launchVideoEditor}
       >
-        <Text style={{fontWeight:'bold', textAlign:'center'}} >Pick & Edit Video</Text>
+        <Text style={{ fontWeight: 'bold', textAlign: 'center' }} >Pick & Edit Video</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
